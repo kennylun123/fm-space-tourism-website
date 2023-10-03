@@ -1,4 +1,173 @@
 :root {
+  --clr-neutral-100: 0 0% 100%;
+  --clr-neutral-400: 231 77% 90%;
+  --clr-neutral-900: 230 35% 7%;
+
+  /* sub-h2 */
+  --fs-200: 0.875rem;
+  /* nav-links */
+  --fs-300: 1rem;
+  /* paragraph */
+  --fs-400: 1.125rem;
+  /* h5, sub-h1*/
+  --fs-500: 1.75rem;
+  /* h4 */
+  --fs-600: 2rem;
+  /* h3 */
+  --fs-700: 3.5rem;
+  /* h2 */
+  --fs-800: 6.25rem;
+  /* h1 */
+  --fs-900: 9.375rem;
+
+  --fw-700: 700;
+}
+
+@media (max-width: 1040px) {
+  :root {
+    --fs-300: 0.875rem;
+  }
+}
+
+@media (max-width: 580px) {
+  :root {
+    --fs-300: 1rem;
+  }
+}
+
+/* ------------------------- */
+/*           Reset           */
+/* ------------------------- */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-size: var(--fs-400);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------- Composition -------------- */
+.grid {
+  display: grid;
+  gap: var(--grid-gap, 1rem);
+}
+
+.flex {
+  display: flex;
+  gap: var(--flex-gap, 1rem);
+}
+/* ------------- Utility ------------------ */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.textNeutral100 {
+  color: hsl(var(--clr-neutral-100));
+}
+
+.fs300 {
+  font-size: var(--fs-300);
+}
+
+.fw700 {
+  font-weight: 700;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.ls2-7 {
+  letter-spacing: 2.7px;
+}
+
+/* ------------- Block -------------------- */
+
+/* ------------- Exception ---------------- */
+
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -104,4 +273,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
