@@ -1,6 +1,43 @@
 .main {
-  display: flex;
-  flex-direction: column;
+  --grid-gap: 0;
   min-height: 100vh;
-  background-color: lightsalmon;
+  grid-template-rows: min-content auto;
+  background-image: url(/assets/technology/background-technology-desktop.jpg);
+  background-position: center center;
+}
+
+.containerTech {
+  grid-template-areas:
+    ". title title title ."
+    ". tabOrdered techContent heroImg heroImg";
+  grid-template-columns:
+    minmax(2rem, 1fr)
+    min-content
+    minmax(min-content, 4fr)
+    minmax(0, 4fr)
+    minmax(2rem, 1fr);
+  justify-items: start;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#title {
+  grid-area: title;
+}
+
+#techContent {
+  grid-area: techContent;
+}
+
+#tabOrdered {
+  grid-area: tabOrdered;
+  --flex-gap: 2rem;
+  flex-direction: column;
+}
+
+#heroImg {
+  grid-area: heroImg;
+  /* min-width: min-content; */
+  justify-self: end;
+  object-fit: contain;
 }

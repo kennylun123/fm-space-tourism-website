@@ -1,6 +1,37 @@
 .main {
-  display: flex;
-  flex-direction: column;
+  --grid-gap: 0;
   min-height: 100vh;
-  background-color: lightblue;
+  grid-template-rows: min-content auto;
+  background-image: url(/assets/home/background-home-desktop.jpg);
+  background-position: center center;
+}
+
+.containerHome {
+  align-items: end;
+}
+
+.intro {
+  grid-column: 2;
+  --flex-gap: 1.5rem;
+  flex-direction: column;
+}
+
+.btnExplore {
+  display: grid;
+  place-items: center;
+  width: 274px;
+  height: 274px;
+  border-radius: 50%;
+  background-color: hsl(var(--clr-neutral-100));
+  color: hsl(var(--clr-neutral-900));
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  outline: 0 solid hsl(var(--clr-neutral-100) / 0.15);
+  transition: all 300ms ease-out;
+}
+
+.btnExplore:hover {
+  outline-width: 88px;
 }

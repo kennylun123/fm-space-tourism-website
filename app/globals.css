@@ -18,9 +18,21 @@
   /* h2 */
   --fs-800: 6.25rem;
   /* h1 */
-  --fs-900: 9.375rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
 
+  /* default font weight */
+  --fw-400: 400;
+  /* nav links index */
   --fw-700: 700;
+
+  /* letter spacing */
+  --ls-2-35: 2.35px;
+  --ls-2-7: 2.7px;
+  --ls-4-725: 4.725px;
+
+  --lh-1-78: 1.78;
+
+  --gutter: 165px;
 }
 
 @media (max-width: 1040px) {
@@ -52,6 +64,7 @@ h1,
 h2,
 h3,
 h4,
+h5,
 p,
 figure,
 blockquote,
@@ -77,8 +90,9 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
   font-size: var(--fs-400);
+  font-weight: var(--fw-400);
+  color: hsl(var(--clr-neutral-400));
 }
 
 /* A elements that don't have a class get default styles */
@@ -131,6 +145,18 @@ select {
   display: flex;
   gap: var(--flex-gap, 1rem);
 }
+
+.gridContainer {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 4rem;
+  grid-template-columns:
+    minmax(1rem, 1fr)
+    repeat(2, minmax(0, 40rem))
+    minmax(1rem, 1fr);
+  column-gap: 2rem;
+  place-items: center;
+}
 /* ------------- Utility ------------------ */
 .srOnly {
   position: absolute;
@@ -147,20 +173,124 @@ select {
   color: hsl(var(--clr-neutral-100));
 }
 
+.textNeutral900 {
+  color: hsl(var(--clr-neutral-900));
+}
+
+.fs200 {
+  font-size: var(--fs-200);
+}
+
 .fs300 {
   font-size: var(--fs-300);
 }
 
+.fs400 {
+  font-size: var(--fs-400);
+}
+
+.fs500 {
+  font-size: var(--fs-500);
+}
+
+.fs600 {
+  font-size: var(--fs-600);
+}
+
+.fs700 {
+  font-size: var(--fs-700);
+}
+
+.fs800 {
+  font-size: var(--fs-800);
+}
+
+.fs900 {
+  font-size: var(--fs-900);
+}
+
+.fw400 {
+  font-weight: var(--fw-400);
+}
+
 .fw700 {
-  font-weight: 700;
+  font-weight: var(--fw-700);
 }
 
 .uppercase {
   text-transform: uppercase;
 }
 
+.ls2-35 {
+  letter-spacing: var(--ls-2-35);
+}
+
 .ls2-7 {
-  letter-spacing: 2.7px;
+  letter-spacing: var(--ls-2-7);
+}
+
+.ls4-725 {
+  letter-spacing: var(--ls-4-725);
+}
+
+.lh1-78 {
+  line-height: 1.78;
+}
+
+.op-25 {
+  opacity: 0.25;
+}
+
+.op-5 {
+  opacity: 0.5;
+}
+
+.mr1-75 {
+  margin-right: 1.75rem;
+}
+
+.mt-75 {
+  margin-top: 0.75rem;
+}
+
+.mt1 {
+  margin-top: 1rem;
+}
+
+.mt1-5 {
+  margin-top: 1.5rem;
+}
+
+.mt4-75 {
+  margin-top: 4.75rem;
+}
+
+.mb-5 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+.pt1-75 {
+  padding-top: 1.75rem;
+}
+
+.pt2-375 {
+  padding-top: 2.375rem;
+}
+
+.pt4-75 {
+  padding-top: 4.75rem;
+}
+
+.w50ch {
+  max-width: 50ch;
+}
+
+.border {
+  border: 1px dashed yellow;
 }
 
 /* ------------- Block -------------------- */

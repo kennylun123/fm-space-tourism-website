@@ -2,12 +2,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { barlow_Condensed } from "./fonts";
+import { barlow_Condensed } from "../fonts";
 import styles from "./header.module.css";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [menuActive, setMenuActive] = useState(false);
+  const pathname = usePathname();
 
   const handleHamburgerClick = () => {
     setMenuActive((prev) => !prev);
@@ -49,23 +51,43 @@ export default function Header() {
           role="list"
         >
           <li className={styles.mainMenuLinkContainer}>
-            <Link href="/" className={`${styles.mainMenuLink} flex`}>
+            <Link
+              href="/"
+              className={`${styles.mainMenuLinks} ${
+                pathname === "/" ? styles.mainMenuLinkActive : ""
+              } flex`}
+            >
               <span className={`${styles.linkIndex} fw700`}>00&nbsp;</span>Home
             </Link>
           </li>
           <li className={styles.mainMenuLinkContainer}>
-            <Link href="/destination" className={`${styles.mainMenuLink} flex`}>
+            <Link
+              href="/destination"
+              className={`${styles.mainMenuLinks} ${
+                pathname === "/destination" ? styles.mainMenuLinkActive : ""
+              } flex`}
+            >
               <span className={`${styles.linkIndex} fw700`}>01&nbsp;</span>
               Destination
             </Link>
           </li>
           <li className={styles.mainMenuLinkContainer}>
-            <Link href="/crew" className={`${styles.mainMenuLink} flex`}>
+            <Link
+              href="/crew"
+              className={`${styles.mainMenuLinks} ${
+                pathname === "/crew" ? styles.mainMenuLinkActive : ""
+              } flex`}
+            >
               <span className={`${styles.linkIndex} fw700`}>02&nbsp;</span>Crew
             </Link>
           </li>
           <li className={styles.mainMenuLinkContainer}>
-            <Link href="/technology" className={`${styles.mainMenuLink} flex`}>
+            <Link
+              href="/technology"
+              className={`${styles.mainMenuLinks} ${
+                pathname === "/technology" ? styles.mainMenuLinkActive : ""
+              } flex`}
+            >
               <span className={`${styles.linkIndex} fw700`}>03&nbsp;</span>
               Technology
             </Link>

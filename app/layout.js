@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { bellefair } from "./fonts";
+import { barlow } from "./fonts";
 
 export const metadata = {
   title: "Space Tourism Website",
@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={bellefair.className}>{children}</body>
+      <body className={barlow.className}>{children}</body>
     </html>
   );
 }
