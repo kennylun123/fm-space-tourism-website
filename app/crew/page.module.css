@@ -1,14 +1,15 @@
 .main {
   --grid-gap: 0;
   min-height: 100vh;
-  grid-template-rows: min-content auto;
+  grid-template-rows: min-content 1fr;
   background-image: url(/assets/crew/background-crew-desktop.jpg);
   background-position: center center;
+  background-size: cover;
 }
 
 .containerCrew {
   grid-template-areas:
-    ". title heroImg heroImg"
+    ". title title ."
     ". crewContent heroImg heroImg"
     ". tabUnordered heroImg heroImg";
   grid-template-columns:
@@ -16,10 +17,9 @@
     minmax(min-content, 4fr)
     minmax(0, 4fr)
     minmax(2rem, 1fr);
-  grid-template-rows: min-content auto min-content;
   justify-items: start;
+  align-content: start;
   padding-bottom: 0;
-  height: 100vh;
 }
 
 #title {
@@ -38,6 +38,34 @@
   grid-area: heroImg;
   place-self: center;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1;
+  /* aspect-ratio: 70/45; */
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .main {
+    background-image: url(/assets/crew/background-crew-tablet.jpg);
+  }
+  .containerCrew {
+    grid-template-areas:
+      "title"
+      "crewContent"
+      "tabUnordered"
+      "heroImg";
+    grid-template-columns: auto;
+    justify-items: center;
+  }
+
+  #title {
+    justify-self: start;
+  }
+
+  #tabUnordered {
+    margin-bottom: 0;
+  }
+
+  #heroImgWrapper {
+    aspect-ratio: 4 / 3;
+  }
 }

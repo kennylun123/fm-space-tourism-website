@@ -8,7 +8,7 @@ export function Tab({ id, className, items, index, setIndex }) {
           key={n}
           className={`${styles.tabLinks} ${
             index === n ? styles.tabLinkActive : ""
-          } textNeutral100 fs300 ls2-7 uppercase`}
+          }`}
           onClick={() => setIndex(n)}
         >
           {item}
@@ -44,7 +44,7 @@ export function TabOrdered({ id, className, items, index, setIndex }) {
           key={n}
           className={`${styles.tabOrderedLinks} ${
             index === n ? styles.tabOrderedLinkActive : ""
-          } textNeutral100 fs600 uppercase`}
+          }`}
           onClick={() => setIndex(n)}
         >
           {item}

@@ -14,7 +14,7 @@ export default function Crew() {
   const { crew } = data;
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} grid`}>
       <Header />
       <Content crewData={crew} index={index} setIndex={setIndex} />
     </main>
@@ -28,7 +28,7 @@ const Content = ({ crewData, index, setIndex }) => {
     <div className={`grid gridContainer ${styles.containerCrew}`}>
       <h1
         id={styles.title}
-        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 uppercase`}
+        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 uppercase`}
       >
         <span className={`fw700 op-25 mr1-75`}>02</span>
         Meet Your Crew
@@ -36,17 +36,17 @@ const Content = ({ crewData, index, setIndex }) => {
 
       <CrewContent
         id={styles.crewContent}
+        className={"md-mt-3-75"}
         content={{
           name: name,
           role: role,
           bio: bio,
-          setIndex: setIndex,
         }}
       />
 
       <TabUnordered
         id={styles.tabUnordered}
-        className={`flex mb-4`}
+        className={`flex mb-4 md-mt-2-5`}
         items={[
           crewData[0].name,
           crewData[1].name,
@@ -57,12 +57,11 @@ const Content = ({ crewData, index, setIndex }) => {
         setIndex={setIndex}
       />
 
-      <div id={styles.heroImgWrapper}>
+      <div id={styles.heroImgWrapper} className="md-mt-2-5">
         <Image
           src={images.webp}
           fill
           alt={`Picture of ${name}`}
-          className={`pt4-75`}
           style={{ objectFit: "contain" }}
         />
       </div>
@@ -70,16 +69,16 @@ const Content = ({ crewData, index, setIndex }) => {
   );
 };
 
-const CrewContent = ({ id, content }) => {
+const CrewContent = ({ id, className, content }) => {
   return (
-    <div id={id}>
+    <div id={id} className={className}>
       <h2
         className={`${bellefair.className} textNeutral100 fs700 fw400 uppercase`}
       >
         <div className={`op-5 fs600 mb-5`}>{content.role}</div>
         {content.name}
       </h2>
-      <p className="mt1-5 lh1-78 w50ch">{content.bio}</p>
+      <p className="mt1-5 md-mt-1 lh1-78 w50ch">{content.bio}</p>
     </div>
   );
 };

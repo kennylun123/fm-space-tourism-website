@@ -14,7 +14,7 @@ export default function Technology() {
   const { technology } = data;
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} grid`}>
       <Header />
       <Content techData={technology} index={index} setIndex={setIndex} />
     </main>
@@ -28,7 +28,7 @@ const Content = ({ techData, index, setIndex }) => {
     <div className={`grid gridContainer ${styles.containerTech}`}>
       <h1
         id={styles.title}
-        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 uppercase`}
+        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 uppercase`}
       >
         <span className={`fw700 op-25 mr1-75`}>03</span>
         Space Launch 101
@@ -36,7 +36,7 @@ const Content = ({ techData, index, setIndex }) => {
 
       <TabOrdered
         id={styles.tabOrdered}
-        className={`${bellefair.className} flex`}
+        className={`${bellefair.className} flex md-mt-3-5`}
         items={["1", "2", "3"]}
         index={index}
         setIndex={setIndex}
@@ -44,23 +44,22 @@ const Content = ({ techData, index, setIndex }) => {
 
       <TechContent
         id={styles.techContent}
+        className={`md-mt-2-75`}
         content={{ name: name, description: description }}
       />
 
-      <Image
-        id={styles.heroImg}
-        src={images.portrait}
-        width={515}
-        height={527}
-        alt={`Picture of ${name}`}
-      />
+      {/* next/image has not support art direction yet. */}
+      <picture id={styles.heroImg} className="md-mt-3-75">
+        <source srcSet={images.landscape} media="(max-width: 768px)" />
+        <img src={images.portrait} alt={`Picture of ${name}`} />
+      </picture>
     </div>
   );
 };
 
-const TechContent = ({ id, content }) => {
+const TechContent = ({ id, content, className }) => {
   return (
-    <div id={id}>
+    <div id={id} className={className}>
       <div className={`${barlow_Condensed.className} fs200 ls2-7 uppercase`}>
         The terminology...
       </div>

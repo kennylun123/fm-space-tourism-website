@@ -14,7 +14,7 @@ export default function Destination() {
   const { destinations } = data;
   const [index, setIndex] = useState(0);
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} grid`}>
       <Header />
       <Content
         destinationsData={destinations}
@@ -33,7 +33,7 @@ const Content = ({ destinationsData, index, setIndex }) => {
     <div className={`grid gridContainer ${styles.containerDestination}`}>
       <h1
         id={styles.title}
-        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 uppercase`}
+        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 uppercase`}
       >
         <span className={`fw700 op-25 mr1-75`}>01</span>
         Pick Your Destination
@@ -45,6 +45,7 @@ const Content = ({ destinationsData, index, setIndex }) => {
         height="445"
         alt="Picture of the planet"
         id={styles.heroImg}
+        className="md-mt-3-75 md-mb-3"
       />
 
       <Tab
@@ -62,6 +63,7 @@ const Content = ({ destinationsData, index, setIndex }) => {
 
       <DestinationContent
         id={styles.destinationContent}
+        className={`${styles.containerDestinationContent} flex pt2-375 md-mt-3`}
         content={{
           name: name,
           description: description,
@@ -73,12 +75,9 @@ const Content = ({ destinationsData, index, setIndex }) => {
   );
 };
 
-const DestinationContent = ({ id, content }) => {
+const DestinationContent = ({ id, className, content }) => {
   return (
-    <div
-      id={id}
-      className={`${styles.containerDestinationContent} flex pt2-375`}
-    >
+    <div id={id} className={className}>
       <h2 className={`${bellefair.className} textNeutral100 fs800 uppercase`}>
         {content.name}
       </h2>
@@ -92,7 +91,7 @@ const DestinationContent = ({ id, content }) => {
             Avg. Distance
           </h3>
           <p
-            className={`${bellefair.className} mt-75 textNeutral100 fs500 fw400 uppercase`}
+            className={`${bellefair.className} mt-75 textNeutral100 fs550 fw400 uppercase`}
           >
             {content.distance}
           </p>
@@ -105,7 +104,7 @@ const DestinationContent = ({ id, content }) => {
             Est. Travel Time
           </h3>
           <p
-            className={`${bellefair.className} mt-75 textNeutral100 fs500 fw400 uppercase`}
+            className={`${bellefair.className} mt-75 textNeutral100 fs550 fw400 uppercase`}
           >
             {content.travel}
           </p>

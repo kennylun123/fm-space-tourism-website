@@ -1,9 +1,10 @@
 .main {
   --grid-gap: 0;
   min-height: 100vh;
-  grid-template-rows: min-content auto;
+  grid-template-rows: min-content 1fr;
   background-image: url(/assets/home/background-home-desktop.jpg);
   background-position: center center;
+  background-size: cover;
 }
 
 .containerHome {
@@ -34,4 +35,29 @@
 
 .btnExplore:hover {
   outline-width: 88px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    background-image: url(/assets/home/background-home-tablet.jpg);
+  }
+
+  .containerHome {
+    grid-template-columns: auto;
+    padding-top: 2rem;
+    row-gap: 2rem;
+  }
+
+  .intro {
+    grid-column: auto;
+  }
+
+  .btnExplore {
+    width: 242px;
+    height: 242px;
+  }
+
+  .btnExplore:hover {
+    outline-width: 77px;
+  }
 }

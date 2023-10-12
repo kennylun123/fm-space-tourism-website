@@ -4,6 +4,10 @@
   background: none;
   cursor: pointer;
   position: relative;
+  color: hsl(var(--clr-neutral-100));
+  font-size: 1rem;
+  letter-spacing: 2.7px;
+  text-transform: uppercase;
 }
 
 .tabLinks::after {
@@ -29,6 +33,7 @@
 }
 
 .tabUnorderedLinks {
+  padding: 0;
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -48,12 +53,16 @@
 }
 
 .tabOrderedLinks {
+  padding: 0;
   width: clamp(3.75rem, 6vw, 5rem);
   height: clamp(3.75rem, 6vw, 5rem);
   border-radius: 50%;
   border: 1px solid hsl(var(--clr-neutral-100) / 0.25);
   background: none;
   cursor: pointer;
+  color: hsl(var(--clr-neutral-100));
+  font-size: 2rem;
+  text-transform: uppercase;
   transform: all 200ms ease;
 }
 
@@ -65,4 +74,15 @@
   background-color: hsl(var(--clr-neutral-100));
   color: hsl(var(--clr-neutral-900));
   border: none;
+}
+
+@media (max-width: 768px) {
+  .tabUnorderedLinks {
+    width: 10px;
+    height: 10px;
+  }
+
+  .tabOrderedLinks {
+    font-size: 1.5rem;
+  }
 }
