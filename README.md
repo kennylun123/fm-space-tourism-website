@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/responsive-space-tourism-website-using-nextjs-13app-router-bbo-mdrB-v](https://www.frontendmentor.io/solutions/responsive-space-tourism-website-using-nextjs-13app-router-bbo-mdrB-v)
+- Live Site URL: [https://fm-space-tourism-website-kennylun123.vercel.app/](https://fm-space-tourism-website-kennylun123.vercel.app/)
 
 ## My process
 
