@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Mentor - Space tourism website solution
 
-## Getting Started
+This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for each of the website's pages depending on their device's screen size
+- See hover states for all interactive elements on the page
+- View each page and be able to toggle between the tabs to see new information
+
+### Screenshot
+
+<p>Desktop version</p>
+<img src="screenshots/space-tourism-website-desktop.png" width="100%" alt="desktop-version" />
+<p>Tablet version</p>
+<img src="screenshots/space-tourism-website-tablet.png" width="880px" alt="tablet-version" />
+<p>Mobile version</p>
+<img src="screenshots/space-tourism-website-mobile.png" width="375px" alt="mobile-version" />
+
+### Links
+
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- [React](https://reactjs.org/) - JS library
+- [NextJS (App Router)](https://nextjs.org/) - React framework
+- CSS Modules
+- CUBE CSS
+
+### What I learned
+
+- Defining routes, setting up pages and layouts with NextJS (App Router)
+
+- The relationship of server side rendering(SSR) and client side rendering. Basically means that the components which need user interaction shall be render in client side. In opposite, the components without interaction should stay in server side for pre-rendering in build time.
+
+- Setting up a universal grid layout, first to consider how many column in the page, how many space should be taken by main content, then how the grid lines should be composed.
+
+./page.js
+
+```html
+<div className="{`grid" gridContainer ${styles.containerHome}`}>...</div>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+./page.module.css
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```css
+.containerHome {
+  align-items: end;
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+./global.css
 
-## Learn More
+```css
+.grid {
+  display: grid;
+  gap: var(--grid-gap, 1rem);
+}
 
-To learn more about Next.js, take a look at the following resources:
+.gridContainer {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 4rem;
+  grid-template-columns:
+    minmax(1rem, 1fr)
+    repeat(2, minmax(0, 40rem))
+    minmax(1rem, 1fr);
+  column-gap: 2rem;
+  place-items: center;
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- CSS function: clamp(), clamps a middle value within a range of values between a defined minimum bound and a maximum bound.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```css
+:root {
+  --fs-900: clamp(5rem, 10vw + 1rem, 9.375rem);
+}
+```
 
-## Deploy on Vercel
+- CSS function: minmax(), defines a size range greater than or equal to min and less than or equal to max. It is used with CSS Grids.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Useful resources
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Defining Routes on NextJS](https://nextjs.org/docs/app/building-your-application/routing/defining-routes)
+
+- [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
+
+## Author
+
+- Frontend Mentor - [@kennylun123](https://www.frontendmentor.io/profile/kennylun123)
+- Twitter - [@kenny_ng123](https://twitter.com/kenny_ng123)

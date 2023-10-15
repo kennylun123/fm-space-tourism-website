@@ -25,7 +25,7 @@
   border-radius: 50%;
   background-color: hsl(var(--clr-neutral-100));
   color: hsl(var(--clr-neutral-900));
-  font-size: 32px;
+  font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   cursor: pointer;
@@ -59,5 +59,20 @@
 
   .btnExplore:hover {
     outline-width: 77px;
+  }
+}
+
+@media (max-width: 375px) {
+  .main {
+    background-image: url(/assets/home/background-home-mobile.jpg);
+  }
+
+  .btnExplore {
+    font-size: 1.25rem;
+    width: 150px;
+    height: 150px;
+  }
+  .btnExplore:hover {
+    outline-width: 47px;
   }
 }

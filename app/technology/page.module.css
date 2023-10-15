@@ -4,6 +4,7 @@
   grid-template-rows: min-content 1fr;
   background-image: url(/assets/technology/background-technology-desktop.jpg);
   background-position: center center;
+  background-size: cover;
 }
 
 .containerTech {
@@ -68,5 +69,15 @@
   #tabOrdered {
     --flex-gap: 1rem;
     flex-direction: row;
+  }
+}
+
+@media (max-width: 375px) {
+  .main {
+    background-image: url(/assets/technology/background-technology-mobile.jpg);
+  }
+
+  #title {
+    justify-self: center;
   }
 }

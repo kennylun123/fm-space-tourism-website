@@ -28,9 +28,9 @@ const Content = ({ crewData, index, setIndex }) => {
     <div className={`grid gridContainer ${styles.containerCrew}`}>
       <h1
         id={styles.title}
-        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 uppercase`}
+        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 sm-mt-1-5 uppercase`}
       >
-        <span className={`fw700 op-25 mr1-75`}>02</span>
+        <span className={`fw700 op-25 mr1-75 sm-mr-1`}>02</span>
         Meet Your Crew
       </h1>
 
@@ -46,7 +46,7 @@ const Content = ({ crewData, index, setIndex }) => {
 
       <TabUnordered
         id={styles.tabUnordered}
-        className={`flex mb-4 md-mt-2-5`}
+        className={`flex mb-4 md-mb-2-5 md-mt-2-5 sm-mt-2 sm-mb-2`}
         items={[
           crewData[0].name,
           crewData[1].name,
@@ -57,7 +57,7 @@ const Content = ({ crewData, index, setIndex }) => {
         setIndex={setIndex}
       />
 
-      <div id={styles.heroImgWrapper} className="md-mt-2-5">
+      <div id={styles.heroImgWrapper} className="sm-mt-2">
         <Image
           src={images.webp}
           fill

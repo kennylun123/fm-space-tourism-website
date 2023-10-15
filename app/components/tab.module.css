@@ -86,3 +86,16 @@
     font-size: 1.5rem;
   }
 }
+
+@media (max-width: 375px) {
+  .tabLinks {
+    font-size: 0.875rem;
+    letter-spacing: 2.35px;
+  }
+
+  .tabOrderedLinks {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+}

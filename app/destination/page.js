@@ -33,9 +33,9 @@ const Content = ({ destinationsData, index, setIndex }) => {
     <div className={`grid gridContainer ${styles.containerDestination}`}>
       <h1
         id={styles.title}
-        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 uppercase`}
+        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 sm-mt-1-5 uppercase`}
       >
-        <span className={`fw700 op-25 mr1-75`}>01</span>
+        <span className={`fw700 op-25 mr1-75 sm-mr-1`}>01</span>
         Pick Your Destination
       </h1>
 
@@ -45,7 +45,7 @@ const Content = ({ destinationsData, index, setIndex }) => {
         height="445"
         alt="Picture of the planet"
         id={styles.heroImg}
-        className="md-mt-3-75 md-mb-3"
+        className="md-mt-3-75 sm-mt-2 md-mb-3 sm-mb-1-5"
       />
 
       <Tab
@@ -63,7 +63,7 @@ const Content = ({ destinationsData, index, setIndex }) => {
 
       <DestinationContent
         id={styles.destinationContent}
-        className={`${styles.containerDestinationContent} flex pt2-375 md-mt-3`}
+        className={`${styles.containerDestinationContent} flex pt2-375 md-pt-2 sm-pt-1-25`}
         content={{
           name: name,
           description: description,
@@ -81,9 +81,9 @@ const DestinationContent = ({ id, className, content }) => {
       <h2 className={`${bellefair.className} textNeutral100 fs800 uppercase`}>
         {content.name}
       </h2>
-      <p className={`lh1-78 w50ch`}>{content.description}</p>
+      <p className={`lh1-78 w50ch md-mb-3 sm-mb-2`}>{content.description}</p>
 
-      <div className={`${styles.destinationProps} flex pt1-75`}>
+      <div className={`${styles.destinationProps} flex pt1-75 sm-pt-2`}>
         <div>
           <h3
             className={`${barlow_Condensed.className} fs200 fw400 ls2-35 uppercase`}

@@ -28,15 +28,15 @@ const Content = ({ techData, index, setIndex }) => {
     <div className={`grid gridContainer ${styles.containerTech}`}>
       <h1
         id={styles.title}
-        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 uppercase`}
+        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 sm-mt-1-5 uppercase`}
       >
-        <span className={`fw700 op-25 mr1-75`}>03</span>
+        <span className={`fw700 op-25 mr1-75 sm-mr-1`}>03</span>
         Space Launch 101
       </h1>
 
       <TabOrdered
         id={styles.tabOrdered}
-        className={`${bellefair.className} flex md-mt-3-5`}
+        className={`${bellefair.className} flex md-mt-3-5 sm-mt-2`}
         items={["1", "2", "3"]}
         index={index}
         setIndex={setIndex}
@@ -44,12 +44,12 @@ const Content = ({ techData, index, setIndex }) => {
 
       <TechContent
         id={styles.techContent}
-        className={`md-mt-2-75`}
+        className={`md-mt-2-75 sm-mt-1-5`}
         content={{ name: name, description: description }}
       />
 
       {/* next/image has not support art direction yet. */}
-      <picture id={styles.heroImg} className="md-mt-3-75">
+      <picture id={styles.heroImg} className="md-mt-3-75 sm-mt-2">
         <source srcSet={images.landscape} media="(max-width: 768px)" />
         <img src={images.portrait} alt={`Picture of ${name}`} />
       </picture>
@@ -68,7 +68,7 @@ const TechContent = ({ id, content, className }) => {
       >
         {content.name}
       </h2>
-      <p className="mt1-5 lh1-78 w50ch">{content.description}</p>
+      <p className="mt1-5 sm-mt-1 lh1-78 w50ch">{content.description}</p>
     </div>
   );
 };
