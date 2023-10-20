@@ -11,7 +11,7 @@
   grid-template-areas:
     ". title title ."
     ". . tab ."
-    ". heroImg destinationContent .";
+    ". heroImgWrapper destinationContent .";
   grid-template-columns:
     minmax(2rem, 1fr)
     minmax(0, 4fr)
@@ -24,9 +24,12 @@
   grid-area: title;
 }
 
-#heroImg {
-  grid-area: heroImg;
+#heroImgWrapper {
+  grid-area: heroImgWrapper;
   justify-self: center;
+}
+
+#heroImg {
   object-fit: contain;
 }
 
@@ -57,7 +60,7 @@
   .containerDestination {
     grid-template-areas:
       "title"
-      "heroImg"
+      "heroImgWrapper"
       "tab"
       "destinationContent";
     grid-template-columns: auto;

@@ -1,10 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./page.module.css";
-
 import Header from "./components/Header";
 import { bellefair, barlow_Condensed } from "./fonts";
+import CustomMotionWrapper from "./CustomMotion";
 
-export default async function Home() {
+export default function Home() {
   return (
     <main className={`${styles.main} grid`}>
       <Header />
@@ -15,7 +17,9 @@ export default async function Home() {
 
 const Content = () => {
   return (
-    <div className={`grid gridContainer ${styles.containerHome}`}>
+    <CustomMotionWrapper
+      className={`grid gridContainer ${styles.containerHome}`}
+    >
       <div className={`${styles.intro} flex`}>
         <h2
           className={`${barlow_Condensed.className} fs500 fw400 ls4-725 uppercase`}
@@ -41,6 +45,6 @@ const Content = () => {
       >
         Explore
       </Link>
-    </div>
+    </CustomMotionWrapper>
   );
 };

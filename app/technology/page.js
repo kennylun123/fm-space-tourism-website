@@ -2,12 +2,12 @@
 
 import Header from "../components/Header";
 import styles from "./page.module.css";
-import Image from "next/image";
 import { barlow_Condensed, bellefair } from "../fonts";
 import { useState } from "react";
 import { TabOrdered } from "../components/Tab";
 
 import data from "public/json/data.json";
+import CustomMotionWrapper from "../CustomMotion";
 
 export default function Technology() {
   const [index, setIndex] = useState(0);
@@ -25,7 +25,9 @@ const Content = ({ techData, index, setIndex }) => {
   const { name, images, description } = techData[index];
 
   return (
-    <div className={`grid gridContainer ${styles.containerTech}`}>
+    <CustomMotionWrapper
+      className={`grid gridContainer ${styles.containerTech}`}
+    >
       <h1
         id={styles.title}
         className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 sm-mt-1-5 uppercase`}
@@ -49,17 +51,23 @@ const Content = ({ techData, index, setIndex }) => {
       />
 
       {/* next/image has not support art direction yet. */}
-      <picture id={styles.heroImg} className="md-mt-3-75 sm-mt-2">
-        <source srcSet={images.landscape} media="(max-width: 768px)" />
-        <img src={images.portrait} alt={`Picture of ${name}`} />
-      </picture>
-    </div>
+      <CustomMotionWrapper
+        key={index}
+        id={styles.heroImg}
+        className="md-mt-3-75 sm-mt-2"
+      >
+        <picture>
+          <source srcSet={images.landscape} media="(max-width: 768px)" />
+          <img src={images.portrait} alt={`Picture of ${name}`} />
+        </picture>
+      </CustomMotionWrapper>
+    </CustomMotionWrapper>
   );
 };
 
 const TechContent = ({ id, content, className }) => {
   return (
-    <div id={id} className={className}>
+    <CustomMotionWrapper key={content.name} id={id} className={className}>
       <div className={`${barlow_Condensed.className} fs200 ls2-7 uppercase`}>
         The terminology...
       </div>
@@ -69,6 +77,6 @@ const TechContent = ({ id, content, className }) => {
         {content.name}
       </h2>
       <p className="mt1-5 sm-mt-1 lh1-78 w50ch">{content.description}</p>
-    </div>
+    </CustomMotionWrapper>
   );
 };

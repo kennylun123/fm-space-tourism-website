@@ -8,6 +8,7 @@ import { TabUnordered } from "../components/Tab";
 import { useState } from "react";
 
 import data from "public/json/data.json";
+import CustomMotionWrapper from "../CustomMotion";
 
 export default function Crew() {
   const [index, setIndex] = useState(0);
@@ -25,7 +26,9 @@ const Content = ({ crewData, index, setIndex }) => {
   const { name, images, role, bio } = crewData[index];
 
   return (
-    <div className={`grid gridContainer ${styles.containerCrew}`}>
+    <CustomMotionWrapper
+      className={`grid gridContainer ${styles.containerCrew}`}
+    >
       <h1
         id={styles.title}
         className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 sm-mt-1-5 uppercase`}
@@ -57,21 +60,25 @@ const Content = ({ crewData, index, setIndex }) => {
         setIndex={setIndex}
       />
 
-      <div id={styles.heroImgWrapper} className="sm-mt-2">
+      <CustomMotionWrapper
+        key={index}
+        id={styles.heroImgWrapper}
+        className="sm-mt-2"
+      >
         <Image
           src={images.webp}
           fill
           alt={`Picture of ${name}`}
           style={{ objectFit: "contain" }}
         />
-      </div>
-    </div>
+      </CustomMotionWrapper>
+    </CustomMotionWrapper>
   );
 };
 
 const CrewContent = ({ id, className, content }) => {
   return (
-    <div id={id} className={className}>
+    <CustomMotionWrapper key={content.name} id={id} className={className}>
       <h2
         className={`${bellefair.className} textNeutral100 fs700 fw400 uppercase`}
       >
@@ -79,6 +86,6 @@ const CrewContent = ({ id, className, content }) => {
         {content.name}
       </h2>
       <p className="mt1-5 md-mt-1 lh1-78 w50ch">{content.bio}</p>
-    </div>
+    </CustomMotionWrapper>
   );
 };

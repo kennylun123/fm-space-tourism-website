@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import CustomMotionWrapper from "../CustomMotion";
 
 import Header from "../components/Header";
 import { Tab } from "../components/Tab";
@@ -13,6 +14,7 @@ import data from "public/json/data.json";
 export default function Destination() {
   const { destinations } = data;
   const [index, setIndex] = useState(0);
+
   return (
     <main className={`${styles.main} grid`}>
       <Header />
@@ -30,54 +32,58 @@ const Content = ({ destinationsData, index, setIndex }) => {
     destinationsData[index];
 
   return (
-    <div className={`grid gridContainer ${styles.containerDestination}`}>
-      <h1
-        id={styles.title}
-        className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 sm-mt-1-5 uppercase`}
-      >
-        <span className={`fw700 op-25 mr1-75 sm-mr-1`}>01</span>
-        Pick Your Destination
-      </h1>
+    <CustomMotionWrapper>
+      <div className={`grid gridContainer ${styles.containerDestination}`}>
+        <h1
+          id={styles.title}
+          className={`${barlow_Condensed.className} textNeutral100 fs500 fw400 ls4-725 mt4-75 md-mt-2-5 sm-mt-1-5 uppercase`}
+        >
+          <span className={`fw700 op-25 mr1-75 sm-mr-1`}>01</span>
+          Pick Your Destination
+        </h1>
 
-      <Image
-        src={images.webp}
-        width="445"
-        height="445"
-        alt="Picture of the planet"
-        id={styles.heroImg}
-        className="md-mt-3-75 sm-mt-2 md-mb-3 sm-mb-1-5"
-      />
+        <Tab
+          id={styles.tab}
+          className={`${barlow_Condensed.className} flex`}
+          items={[
+            destinationsData[0].name,
+            destinationsData[1].name,
+            destinationsData[2].name,
+            destinationsData[3].name,
+          ]}
+          index={index}
+          setIndex={setIndex}
+        />
 
-      <Tab
-        id={styles.tab}
-        className={`${barlow_Condensed.className} flex`}
-        items={[
-          destinationsData[0].name,
-          destinationsData[1].name,
-          destinationsData[2].name,
-          destinationsData[3].name,
-        ]}
-        index={index}
-        setIndex={setIndex}
-      />
+        <CustomMotionWrapper key={index} id={styles.heroImgWrapper}>
+          <Image
+            src={images.webp}
+            width="445"
+            height="445"
+            alt="Picture of the planet"
+            id={styles.heroImg}
+            className="md-mt-3-75 sm-mt-2 md-mb-3 sm-mb-1-5"
+          />
+        </CustomMotionWrapper>
 
-      <DestinationContent
-        id={styles.destinationContent}
-        className={`${styles.containerDestinationContent} flex pt2-375 md-pt-2 sm-pt-1-25`}
-        content={{
-          name: name,
-          description: description,
-          distance: distance,
-          travel: travel,
-        }}
-      />
-    </div>
+        <DestinationContent
+          id={styles.destinationContent}
+          className={`${styles.containerDestinationContent} flex pt2-375 md-pt-2 sm-pt-1-25`}
+          content={{
+            name: name,
+            description: description,
+            distance: distance,
+            travel: travel,
+          }}
+        />
+      </div>
+    </CustomMotionWrapper>
   );
 };
 
 const DestinationContent = ({ id, className, content }) => {
   return (
-    <div id={id} className={className}>
+    <CustomMotionWrapper key={content.name} id={id} className={className}>
       <h2 className={`${bellefair.className} textNeutral100 fs800 uppercase`}>
         {content.name}
       </h2>
@@ -110,6 +116,6 @@ const DestinationContent = ({ id, className, content }) => {
           </p>
         </div>
       </div>
-    </div>
+    </CustomMotionWrapper>
   );
 };
